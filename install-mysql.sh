@@ -14,8 +14,17 @@ sudo systemctl start mysqld
 echo 'Checking status of the MySQL Server'
 systemctl status mysqld
 
-echo 'Temporary password'
+echo -e '\nTemporary password \nPlease change tmp password'
 sudo grep 'temporary password' /var/log/mysqld.log
 
-echo 'Finish'
+echo "Configure interface listening"
+sudo echo "bind-address = 0.0.0.0" >> /etc/my.cnf
 
+echo "Restarting MySQL"
+sudo systemctl restart mysqld
+
+echo "Configuring Firewall"
+sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp
+sudo firewall-cmd --reload
+
+echo "Finish, please, configure MySQL manually"

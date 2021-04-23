@@ -1,13 +1,20 @@
 # Welcome to CLOUD!
-_This material was used for an assignature, I write everything I did as a script_
+_This material was used for an assignature, I wrote everything I did as a script_
 
 ## Installing MySQL on Centos 8
 _I wrote a script to install the DB automatically_
 ```
 ./install-mysql.sh
 ```
-
-## Creating enviroment for the assignature
-_Then I created an user for the DB and some configurations_
+_At the end, you'll see temporary password, you have to change it_``
 ```
-mysql -u itsadmin -p > cloud-db.sql
+alter user 'root'@'localhost' identified by 'MyPass';
+```
+
+### Creating cloud enviroment
+```
+create user 'itsadmin'@'%' identified by 'Its2017.';
+create database itsprod;
+grand all on itsprod.* to 'itsadmin'@'%';
+flush privileges;
+```
