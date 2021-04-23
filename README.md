@@ -13,8 +13,16 @@ alter user 'root'@'localhost' identified by 'MyPass';
 
 ### Creating cloud enviroment
 ```
-create database itsprod;
 create user 'itsadmin'@'%' identified by 'Its2017.';
-grant all on itsprod.* to 'itsadmin'@'%';
+grant all on *.* to 'itsadmin'@'%';
 flush privileges;
+```
+
+## I'm using a test db, here is the information
+[Datacharmer](https://github.com/datacharmer/test_db)
+
+### Installing test db
+_Inside on test_db/_
+```
+mysql -u root -p < employees.sql
 ```
