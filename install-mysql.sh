@@ -27,4 +27,7 @@ echo "Configuring Firewall"
 sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp
 sudo firewall-cmd --reload
 
+echo "Download Test Database"
+git clone https://github.com/datacharmer/test_db.git
+
 echo "Finish, please, configure MySQL manually"

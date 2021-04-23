@@ -13,8 +13,8 @@ alter user 'root'@'localhost' identified by 'MyPass';
 
 ### Creating cloud enviroment
 ```
-create user 'itsadmin'@'%' identified by 'Its2017.';
 create database itsprod;
-grand all on itsprod.* to 'itsadmin'@'%';
+create user 'itsadmin'@'%' identified by 'Its2017.';
+grant all on itsprod.* to 'itsadmin'@'%';
 flush privileges;
 ```
