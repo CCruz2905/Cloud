@@ -6,23 +6,14 @@ _I wrote a script to install the DB automatically_
 ```
 ./install-mysql.sh
 ```
-_At the end, you'll see temporary password, you have to change it_``
+_At the end, you'll see temporary password, you have to change it_
 ```
 alter user 'root'@'localhost' identified by 'MyPass';
 ```
 
 ### Creating cloud enviroment
 ```
-create user 'itsadmin'@'%' identified by 'Its2017.';
+create user 'itsadmin'@'%' identified with mysql_native_password by 'Its2017.';
 grant all on *.* to 'itsadmin'@'%';
 flush privileges;
-```
-
-## I'm using a test db, here is the information
-[Datacharmer](https://github.com/datacharmer/test_db)
-
-### Installing test db
-_Inside on test_db/_
-```
-mysql -u root -p < employees.sql
 ```
